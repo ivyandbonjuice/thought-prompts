@@ -1,85 +1,103 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#183e35" />
     <meta
       name="description"
-      content="8 个值得反复使用的思考型 Prompt：审计假设、检验决策、发现盲点。搜索、填空、一键复制，向更好的问题走近一步。"
+      content="Eight reusable prompts to question assumptions, test decisions and uncover blind spots. Available in English and Chinese."
     />
-    <meta property="og:title" content="问深一层 · 可复用的思考提示词" />
+    <meta
+      property="og:title"
+      content="Think Again — Prompts for Deeper Thinking"
+    />
     <meta
       property="og:description"
-      content="让惯性停一下，让思考再深一层。8 个有来源、可填空、能复制的 Prompt。"
+      content="Pause the autopilot. Think a little deeper. Eight reusable prompts, with sources."
     />
     <meta property="og:type" content="website" />
-    <title>问深一层 — 可复用的思考提示词</title>
+    <title>Think Again — Prompts for Deeper Thinking</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script src="content.js" defer></script>
+    <script src="content-en.js" defer></script>
+    <script src="i18n.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <a class="skip" href="#library">跳到提示词库</a>
+    <a class="skip" href="#library" data-i18n="skip"
+      >Skip to the prompt library</a
+    >
     <header class="site-header wrap">
-      <a class="brand" href="./" aria-label="问深一层首页"
-        ><span class="brand-mark">问<span>↗</span></span
-        ><span>问深一层<small>THE THINKING COLLECTION</small></span></a
+      <a class="brand" href="./" aria-label="Think Again home"
+        ><span class="brand-mark">?<span>↗</span></span
+        ><span
+          ><span data-i18n="brand">Think Again</span
+          ><small>THE THINKING COLLECTION</small></span
+        ></a
       >
-      <nav aria-label="主导航">
-        <a href="#library">探索提示词 <span>↘</span></a
+      <nav aria-label="Main navigation">
+        <a class="explore-link" href="#library" data-i18n="explore"
+          >Explore prompts <span>↘</span></a
         ><a
           href="https://github.com/ivyandbonjuice/thought-prompts"
           target="_blank"
           rel="noopener noreferrer"
           >GitHub <span>↗</span></a
         >
+        <div class="language-switch" role="group" aria-label="Language / 语言">
+          <button data-lang="en" lang="en" aria-pressed="true">EN</button
+          ><button data-lang="zh" lang="zh-CN" aria-pressed="false">
+            中文
+          </button>
+        </div>
       </nav>
     </header>
     <main>
       <section class="hero wrap" aria-labelledby="hero-title">
         <div class="hero-main">
           <div class="eyebrow">
-            <span class="dot"></span> 给认真思考的人，一组好问题
+            <span class="dot"></span
+            ><span data-i18n="eyebrow"
+              >GOOD QUESTIONS FOR THOUGHTFUL PEOPLE</span
+            >
           </div>
-          <h1 id="hero-title">
-            让惯性停一下，<br />让思考<span class="emphasis"
-              >再深一层<svg
-                viewBox="0 0 400 16"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M3 10 Q180 -1 395 7 M40 15 Q220 5 370 12"
-                /></svg></span
-            >。
+          <h1 id="hero-title" data-i18n="hero">
+            Pause the autopilot.<br />Think a little deeper.
           </h1>
-          <p class="hero-description">
-            有些问题，值得换个方式问。<br />把这 8 个提示词放进你的 AI
-            对话，发现盲点、检验判断，把想法变成行动。
+          <p class="hero-description" data-i18n="heroDescription">
+            Some questions deserve a different approach.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#library"
-              >找到我的问题 <span>↘</span></a
-            ><button class="text-button" id="random-prompt">
-              给我一个新视角 <span>↗</span>
+            <a class="button primary" href="#library" data-i18n="find"
+              >Find my question ↘</a
+            ><button class="text-button" id="random-prompt" data-i18n="random">
+              A fresh perspective ↗
             </button>
           </div>
-          <div class="hero-meta">
-            <span>08 个精选模板</span><span>可追溯来源</span
-            ><span>免费 · 无需登录</span>
+          <div class="hero-meta" data-i18n="meta">
+            <span>08 curated prompts</span><span>Sources included</span
+            ><span>Free · No sign-up</span>
           </div>
         </div>
         <aside class="question-note">
           <div class="note-top">
-            <span>换一个问题，试试看</span><span>↗</span>
+            <span data-i18n="noteTop">A different question to try</span
+            ><span>↗</span>
           </div>
           <span class="big-quote" aria-hidden="true">“</span>
-          <p>我把什么<span>猜测，</span><br />当成了<span>事实？</span></p>
+          <p data-i18n="note">
+            What am I treating as fact that is really an assumption?
+          </p>
           <div class="note-bottom">
-            <span>01 / 假设审计</span
-            ><button data-open="assumptions" aria-label="打开假设审计提示词">
-              打开这个提示词 <span>↗</span>
+            <span data-i18n="noteLabel">01 / THE ASSUMPTION AUDIT</span
+            ><button
+              data-open="assumptions"
+              data-i18n="noteOpen"
+              aria-label="Open The Assumption Audit"
+            >
+              Try this prompt ↗
             </button>
           </div>
           <span class="note-stamp" aria-hidden="true">THINK<br />AGAIN.</span>
@@ -92,29 +110,31 @@
       >
         <div class="section-heading">
           <div>
-            <div class="eyebrow muted">THE TOOLKIT / 思考工具箱</div>
-            <h2 id="library-title">此刻，你想想清楚什么？</h2>
+            <div class="eyebrow muted" data-i18n="toolkit">THE TOOLKIT</div>
+            <h2 id="library-title" data-i18n="libraryTitle">
+              What’s on your mind?
+            </h2>
           </div>
-          <button id="download-all" class="text-button">
-            下载全部模板 <span>↓</span>
+          <button id="download-all" class="text-button" data-i18n="download">
+            Download all prompts ↓
           </button>
         </div>
         <div class="library-controls">
-          <div class="filters" role="group" aria-label="按场景筛选">
+          <div class="filters" role="group" aria-label="Filter by situation">
             <button
               class="filter active"
               data-filter="全部"
               aria-pressed="true"
             >
-              全部 <span>08</span></button
+              All <span>08</span></button
             ><button class="filter" data-filter="看见盲点" aria-pressed="false">
-              看见盲点</button
+              Blind spots</button
             ><button class="filter" data-filter="做出决策" aria-pressed="false">
-              做出决策</button
+              Decisions</button
             ><button class="filter" data-filter="学得更深" aria-pressed="false">
-              学得更深</button
+              Learning</button
             ><button class="filter" data-filter="复盘成长" aria-pressed="false">
-              复盘成长
+              Reflection
             </button>
           </div>
           <label class="search"
@@ -122,66 +142,75 @@
             ><input
               id="search"
               type="search"
-              placeholder="搜索问题、场景或关键词…"
-              aria-label="搜索提示词"
+              placeholder="Search questions, situations, keywords…"
+              aria-label="Search prompts"
               autocomplete="off"
             /><kbd aria-hidden="true">/</kbd></label
           >
         </div>
         <div class="results-line">
           <span id="result-count" role="status" aria-live="polite"
-            >8 个提示词</span
-          ><span>选择一张卡片，开始一次更好的对话</span>
+            >8 prompts</span
+          ><span data-i18n="resultsHint"
+            >Pick a card. Start a better conversation.</span
+          >
         </div>
         <div id="cards" class="cards"></div>
         <div id="empty-state" class="empty-state" hidden>
-          <span>没有找到这个问题</span>
-          <p>试试「学习」「证据」或「计划」，也可以重新查看全部模板。</p>
-          <button class="button primary" id="reset-search">重置筛选</button>
+          <span data-i18n="empty">No prompts found</span>
+          <p data-i18n="emptyHint">
+            Try another search, or explore all eight prompts.
+          </p>
+          <button class="button primary" id="reset-search" data-i18n="reset">
+            Reset filters
+          </button>
         </div>
         <noscript
           ><p>
-            请启用 JavaScript 以搜索和复制模板，或前往
+            Enable JavaScript to switch languages, search and copy, or read the
+            templates on GitHub:
+            <a
+              href="https://github.com/ivyandbonjuice/thought-prompts/blob/main/prompts-en.md"
+              >English</a
+            >
+            /
             <a
               href="https://github.com/ivyandbonjuice/thought-prompts/blob/main/prompts.md"
-              >GitHub 阅读完整提示词</a
-            >。
+              >中文</a
+            >.
           </p></noscript
         >
       </section>
       <section class="guide wrap" aria-labelledby="guide-title">
         <div class="guide-intro">
           <div class="eyebrow muted">A SMALL PRACTICE</div>
-          <h2 id="guide-title">好问题，<br />需要真实的你。</h2>
-          <p>不必一次用完。选一个与你此刻有关的问题就好。</p>
+          <h2 id="guide-title" data-i18n="guideTitle">
+            Good questions.<br />Your real experience.
+          </h2>
+          <p data-i18n="guideIntro">
+            Start with one question that matters to you right now.
+          </p>
         </div>
         <ol>
           <li>
             <span>01</span>
             <div>
-              <h3>给一点真实背景</h3>
-              <p>
-                打开模板，填写你的经历、证据与限制。具体的例子比宽泛的角色设定更有用。
-              </p>
+              <h3 data-i18n="guide1Title">Add a little context</h3>
+              <p data-i18n="guide1"></p>
             </div>
           </li>
           <li>
             <span>02</span>
             <div>
-              <h3>复制，开启对话</h3>
-              <p>
-                粘贴到你常用的 AI
-                工具。有些模板会一次问一个问题，留一点时间自己思考。
-              </p>
+              <h3 data-i18n="guide2Title">Copy. Start talking.</h3>
+              <p data-i18n="guide2"></p>
             </div>
           </li>
           <li>
             <span>03</span>
             <div>
-              <h3>带走一个行动</h3>
-              <p>
-                把回答当作待检验的视角。核实关键事实，用一个小行动验证新的判断。
-              </p>
+              <h3 data-i18n="guide3Title">Leave with one action</h3>
+              <p data-i18n="guide3"></p>
             </div>
           </li>
         </ol>
@@ -189,25 +218,35 @@
     </main>
     <footer class="wrap">
       <div>
-        <a class="footer-brand" href="./">问深一层 <span>↗</span></a>
-        <p>把好问题，留在手边。</p>
+        <a class="footer-brand" href="./"
+          ><span data-i18n="brand">Think Again</span> ↗</a
+        >
+        <p data-i18n="footerTagline">Keep good questions close.</p>
       </div>
-      <div class="footer-note">
-        基于公开方法整理的中文改写，来源见各模板。<br />「行为与目标对照」为延伸设计。内容与代码许可见
-        <a
-          href="https://github.com/ivyandbonjuice/thought-prompts#来源与许可"
-          target="_blank"
-          rel="noopener noreferrer"
-          >README ↗</a
-        >。<br />填写内容仅保留在当前页面，不上传、不持久保存。
-      </div>
+      <div class="footer-note" data-i18n="footerNote"></div>
     </footer>
     <dialog id="prompt-dialog" aria-labelledby="dialog-title">
       <div class="dialog-top">
-        <span id="dialog-kicker" class="eyebrow"></span
-        ><button id="close-dialog" class="icon-button" aria-label="关闭提示词">
-          ×
-        </button>
+        <span id="dialog-kicker" class="eyebrow"></span>
+        <div class="dialog-tools">
+          <div
+            class="language-switch"
+            role="group"
+            aria-label="Language / 语言"
+          >
+            <button data-lang="en" lang="en" aria-pressed="true">EN</button
+            ><button data-lang="zh" lang="zh-CN" aria-pressed="false">
+              中文
+            </button>
+          </div>
+          <button
+            id="close-dialog"
+            class="icon-button"
+            aria-label="Close prompt"
+          >
+            ×
+          </button>
+        </div>
       </div>
       <div class="dialog-body">
         <h2 id="dialog-title"></h2>
@@ -215,19 +254,29 @@
         <p id="dialog-use" class="dialog-use"></p>
         <div class="editor-layout">
           <section class="fields-panel" aria-labelledby="fields-title">
-            <h3 id="fields-title">填入你的情况 <span>选填</span></h3>
-            <p>填写后，模板会同步更新。留空则保留占位符。</p>
+            <h3 id="fields-title" data-i18n="fieldsTitle">
+              Make it yours <span>optional</span>
+            </h3>
+            <p data-i18n="fieldsHint">
+              The template updates as you type. Leave fields blank to keep the
+              placeholders.
+            </p>
             <div id="prompt-fields"></div>
             <label class="guard-option"
               ><input type="checkbox" id="add-guard" checked /><span
-                >附加「信息不足先追问」</span
+                data-i18n="guardLabel"
+                >Add “ask when information is missing”</span
               ></label
-            ><small>输入仅在当前页面内存中保留；刷新即清空。</small>
+            ><small data-i18n="privacy"
+              >Entries stay in this page’s memory and clear on reload.</small
+            >
           </section>
           <section class="preview-panel" aria-labelledby="preview-title">
             <div class="preview-heading">
-              <h3 id="preview-title">准备好，问深一层</h3>
-              <span>可直接复制</span>
+              <h3 id="preview-title" data-i18n="previewTitle">
+                Ready to think again
+              </h3>
+              <span data-i18n="previewHint">Ready to copy</span>
             </div>
             <pre id="prompt-preview"></pre>
           </section>
@@ -235,13 +284,22 @@
         <p id="dialog-source" class="source-line"></p>
       </div>
       <div class="dialog-actions">
-        <button class="text-button" id="share-prompt">
-          复制分享链接 <span>↗</span>
+        <button class="text-button" id="share-prompt" data-i18n="share">
+          Copy share link ↗
         </button>
         <div>
-          <button class="button secondary" id="copy-original">复制原模板</button
-          ><button class="button primary" id="copy-filled">
-            复制我的提示词 <span>↗</span>
+          <button
+            class="button secondary"
+            id="copy-original"
+            data-i18n="copyOriginal"
+          >
+            Copy template</button
+          ><button
+            class="button primary"
+            id="copy-filled"
+            data-i18n="copyFilled"
+          >
+            Copy my prompt ↗
           </button>
         </div>
       </div>

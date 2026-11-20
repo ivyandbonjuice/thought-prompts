@@ -1,4 +1,10 @@
-# 问深一层
+# Think Again / 问深一层
+
+**English is the default.** Switch between English and Chinese in the header or inside any prompt. All eight templates, fields, source credits, clipboard actions and Markdown downloads follow the selected language. Switching preserves your entries without uploading them.
+
+- [English (default)](https://ivyandbonjuice.github.io/thought-prompts/)
+- [中文](https://ivyandbonjuice.github.io/thought-prompts/?lang=zh)
+- Read the templates: [English](prompts-en.md) / [中文](prompts.md)
 
 让惯性停一下，让思考再深一层。一个可以搜索、填空和一键复制的中文思考提示词库。
 
@@ -6,6 +12,8 @@
 
 ## 功能
 
+- 默认英文，支持中英文切换；界面、全文、填空提示、复制和下载均已本地化。
+- 搜索同时匹配中英文；切换语言保留当前分类和填写内容。
 - 8 个完整模板：假设审计、最强反方、事前验尸、重写问题、理解检测、复盘去滤镜、行为与目标对照、反审 AI。
 - 按场景筛选，搜索标题、正文和来源；按 `/` 聚焦搜索。
 - 填入个人背景，实时生成可复制的提示词；也可以直接复制原模板。
@@ -26,9 +34,9 @@ python3 -m http.server 8765
 
 ## 修改内容
 
-在 `app.js` 的 `prompts` 数组中编辑模板。每条包括稳定 ID、标题、分类、问题、说明、来源、输入字段和正文。`fields` 的第一项对应正文中的 `[占位符]`。站点全部资源使用相对路径，可部署在 GitHub Pages 仓库子目录。
+在 `content.js` 的 `promptsZh` 和 `content-en.js` 的 `promptsEn` 数组中编辑中英文模板。界面翻译在 `i18n.js` 中。两种语言的模板 ID、顺序及每条的字段顺序必须保持一致，以便切换时保留填写内容。每条包括稳定 ID、标题、分类、问题、说明、来源、输入字段和正文。`fields` 的第一项对应正文中的 `[占位符]`。站点全部资源使用相对路径，可部署在 GitHub Pages 仓库子目录。
 
-模板更新后运行 `node scripts/export-prompts.cjs`，同步生成 `prompts.md`。
+模板更新后运行 `node scripts/export-prompts.cjs`，同步生成 `prompts.md` 和 `prompts-en.md`。
 
 ## 发布
 
@@ -36,7 +44,7 @@ GitHub Pages 从 `main` 分支的根目录发布。推送静态文件后 GitHub 
 
 ## 隐私
 
-填写内容只存在当前页面的内存中，不提交到服务器，不写入浏览器持久存储，刷新即清空。复制分享链接只包含模板 ID，不包含填空内容。下载全部模板导出的是公开原模板，不包含个人输入。点击外部来源或把复制的内容发送给其他 AI 服务，适用对方的隐私政策。
+填写内容只存在当前页面的内存中，不提交到服务器，不写入浏览器持久存储，刷新即清空。无 `lang` 参数时始终默认英文，不根据浏览器语言或旧偏好自动切换。`?lang=en` 和 `?lang=zh` 指定页面语言，刷新会保留 URL 中的选择。复制分享链接包含模板 ID 和语言，不包含填空内容。下载全部模板导出的是公开原模板，不包含个人输入。点击外部来源或把复制的内容发送给其他 AI 服务，适用对方的隐私政策。
 
 ## 来源与许可
 

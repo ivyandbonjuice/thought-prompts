@@ -1,12 +1,12 @@
-# 问深一层 · 8 个可复用的思考提示词
+# 问深一层 · 可复用的思考提示词
 
-中文改写与延伸设计，非来源原文逐字翻译。替换方括号内容即可使用。
+中文改写与延伸设计；非来源原文逐字翻译。填写方括号内容后使用。
 
 ## 1. 假设审计
 
-**我把什么猜测，当成了事实？**
+我把什么猜测，当成了事实？
 
-适用：当你对一个观点特别确信，或迟迟做不出决定。
+适用: 当你对一个观点特别确信，或迟迟做不出决定。
 
 ```text
 我目前相信：[观点]
@@ -24,7 +24,7 @@
 最后问我：出现什么具体证据，你才愿意改变主意？
 ```
 
-来源：[Coursera · 批判性思维提示词](https://www.coursera.org/articles/chatgpt-critical-thinking)
+来源: [Coursera · 批判性思维提示词](https://www.coursera.org/articles/chatgpt-critical-thinking)
 
 参考 Coursera 公开方法，重新编写的中文模板；非原文翻译。
 
@@ -32,9 +32,9 @@
 
 ## 2. 最强反方
 
-**一个聪明、知情的人，为什么仍会不同意我？**
+一个聪明、知情的人，为什么仍会不同意我？
 
-适用：选项目、讨论方案，或为一次重要沟通做好准备。
+适用: 选项目、讨论方案，或为一次重要沟通做好准备。
 
 ```text
 我正在考虑：[方案]
@@ -56,7 +56,7 @@
 不要攻击我的人格，也不要假装双方证据同样充分。
 ```
 
-来源：[Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
+来源: [Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
 
 改编自 Ethan Mollick、Lilach Mollick 的提示词（CC BY 4.0）；已翻译、精简并调整流程。改编内容按 CC BY 4.0 提供。
 
@@ -64,9 +64,9 @@
 
 ## 3. 事前验尸
 
-**假如半年后失败了，今天忽略了什么？**
+假如半年后失败了，今天忽略了什么？
 
-适用：在启动项目、换工作或开始新计划之前，先想一步。
+适用: 在启动项目、换工作或开始新计划之前，先想一步。
 
 ```text
 我的计划是：[计划]
@@ -89,7 +89,7 @@
 每次只问一个问题，等我回答后再继续。
 ```
 
-来源：[Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
+来源: [Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
 
 改编自 Ethan Mollick、Lilach Mollick 的提示词（CC BY 4.0）；已翻译、精简并调整流程。改编内容按 CC BY 4.0 提供。
 
@@ -97,9 +97,9 @@
 
 ## 4. 重写问题
 
-**我是不是一直在认真解决错误的问题？**
+我是不是一直在认真解决错误的问题？
 
-适用：反复想同一件事，却迟迟没有新进展的时候。
+适用: 反复想同一件事，却迟迟没有新进展的时候。
 
 ```text
 我一直卡在这个问题上：[问题]
@@ -117,7 +117,7 @@
 最后，把它变成一次访谈、一次观察或一个小实验。
 ```
 
-来源：[MIT Sloan · Question Burst Catalyst](https://mitsloan.mit.edu/ideas-made-to-matter/ai-tool-helps-you-ask-better-questions-get-more-authentic-results)
+来源: [MIT Sloan · Question Burst Catalyst](https://mitsloan.mit.edu/ideas-made-to-matter/ai-tool-helps-you-ask-better-questions-get-more-authentic-results)
 
 参考 MIT Sloan 对 Hal Gregersen 提问方法的介绍，重新编写；非官方工具原始提示词。
 
@@ -125,9 +125,9 @@
 
 ## 5. 理解检测
 
-**我真的懂了，还是只是会复述术语？**
+我真的懂了，还是只是会复述术语？
 
-适用：读完论文、学完概念，或准备向别人讲解的时候。
+适用: 读完论文、学完概念，或准备向别人讲解的时候。
 
 ```text
 我要向你讲解：[概念]
@@ -145,7 +145,7 @@
 进行5轮后，退出学生角色，指出我已经讲清楚的部分、尚未证明理解的部分，以及最值得补上的知识缺口。
 ```
 
-来源：[Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
+来源: [Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
 
 改编自 Ethan Mollick、Lilach Mollick 的提示词（CC BY 4.0）；已翻译、精简并调整流程。改编内容按 CC BY 4.0 提供。
 
@@ -153,9 +153,9 @@
 
 ## 6. 复盘去滤镜
 
-**结果好，是因为做对了，还是因为运气？**
+结果好，是因为做对了，还是因为运气？
 
-适用：在项目结束、考试之后，或每周复盘时使用。
+适用: 在项目结束、考试之后，或每周复盘时使用。
 
 ```text
 这次事情是：[事件]
@@ -173,7 +173,7 @@
 最后只保留：一个继续做的动作、一个停止的动作、一个下次验证的假设。
 ```
 
-来源：[Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
+来源: [Ethan & Lilach Mollick · Prompt Library](https://www.moreusefulthings.com/student-exercises)
 
 改编自 Ethan Mollick、Lilach Mollick 的提示词（CC BY 4.0）；已翻译、精简并调整流程。改编内容按 CC BY 4.0 提供。
 
@@ -181,9 +181,9 @@
 
 ## 7. 行为与目标对照
 
-**如果只看我的行动，会认为我在追求什么？**
+如果只看我的行动，会认为我在追求什么？
 
-适用：每天都很忙，但重要的事情始终没有推进。
+适用: 每天都很忙，但重要的事情始终没有推进。
 
 ```text
 我声称最重要的3个目标是：[目标]
@@ -200,7 +200,7 @@
 最后问我一个最有区分力的问题，并设计一个7天内可执行的小调整，检验我是否真的愿意为这个目标付出代价。
 ```
 
-来源：[问深一层 · 延伸设计](https://github.com/ivyandbonjuice/thought-prompts)
+来源: [问深一层 · 延伸设计](https://github.com/ivyandbonjuice/thought-prompts)
 
 基于复盘方法延伸设计的原创中文模板，非上述作者原话。由本项目提供，按 CC BY 4.0 授权。
 
@@ -208,9 +208,9 @@
 
 ## 8. 反审 AI
 
-**答案听起来完整，哪里最可能有问题？**
+答案听起来完整，哪里最可能有问题？
 
-适用：追加在任何让你感觉“说得很有道理”的 AI 回答后。
+适用: 追加在任何让你感觉“说得很有道理”的 AI 回答后。
 
 ```text
 请审查你刚才的回答：
@@ -225,7 +225,7 @@
 最后告诉我：最值得独立核实的3件事是什么，应该如何核实？
 ```
 
-来源：[Coursera · 批判性思维提示词](https://www.coursera.org/articles/chatgpt-critical-thinking)
+来源: [Coursera · 批判性思维提示词](https://www.coursera.org/articles/chatgpt-critical-thinking)
 
 参考 Coursera 公开方法，重新编写的中文模板；非原文翻译。
 
@@ -233,4 +233,4 @@
 
 如果信息不足，先问最关键的问题；请引用我提供的具体内容，不要凭空推断。
 
-完整来源与许可请见 [README](README.md#来源与许可)。
+完整来源与许可: https://github.com/ivyandbonjuice/thought-prompts#来源与许可

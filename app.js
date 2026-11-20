@@ -1,259 +1,11 @@
 "use strict";
 
-const coursera = {
-  name: "Coursera · 批判性思维提示词",
-  url: "https://www.coursera.org/articles/chatgpt-critical-thinking",
-  credit: "参考 Coursera 公开方法，重新编写的中文模板；非原文翻译。",
-};
-const mollick = {
-  name: "Ethan & Lilach Mollick · Prompt Library",
-  url: "https://www.moreusefulthings.com/student-exercises",
-  credit:
-    "改编自 Ethan Mollick、Lilach Mollick 的提示词（CC BY 4.0）；已翻译、精简并调整流程。改编内容按 CC BY 4.0 提供。",
-};
-const prompts = [
-  {
-    id: "assumptions",
-    title: "假设审计",
-    category: "看见盲点",
-    question: "我把什么猜测，当成了事实？",
-    description: "当你对一个观点特别确信，或迟迟做不出决定。",
-    source: coursera,
-    sourceShort: "参考 Coursera · 中文改写",
-    recommended: true,
-    fields: [
-      ["观点", "我目前相信", "例如：我需要学完所有课程，才能开始做项目。"],
-      ["事实、经历或数据", "判断的依据", "写下你实际观察到的事实。"],
-      ["行动", "准备采取的行动", "你准备为这个判断做些什么？"],
-    ],
-    text: `我目前相信：[观点]
-我的依据是：[事实、经历或数据]
-我准备因此采取的行动是：[行动]
-
-请审计这个判断：
-1. 区分已知事实、个人解释、尚未验证的假设。
-2. 找出最多5个支撑结论的关键假设。
-3. 哪个假设一旦不成立，最可能推翻整个结论？
-4. 对这个假设，给出最有力的反证或替代解释。
-5. 设计一个成本最低的验证办法。
-
-不要为了反对而反对。证据不足就明确说不足。
-最后问我：出现什么具体证据，你才愿意改变主意？`,
-  },
-  {
-    id: "counterargument",
-    title: "最强反方",
-    category: "做出决策",
-    question: "一个聪明、知情的人，为什么仍会不同意我？",
-    description: "选项目、讨论方案，或为一次重要沟通做好准备。",
-    source: mollick,
-    sourceShort: "Mollick · Devil’s Advocate",
-    fields: [
-      ["方案", "正在考虑的方案", "你想做什么？"],
-      ["目标", "希望达成的目标", "怎样才算成功？"],
-      [
-        "时间、资源、不可接受的代价",
-        "现实约束",
-        "时间、资源，以及你不能接受的代价。",
-      ],
-      ["理由", "支持它的理由", "哪些证据让你倾向这个方案？"],
-    ],
-    text: `我正在考虑：[方案]
-目标是：[目标]
-现实约束是：[时间、资源、不可接受的代价]
-我支持它的理由是：[理由]
-
-请担任善意但严格的反方：
-先准确复述我的方案，保留它最有说服力的部分。
-然后构建一个了解情况、理性且有经验的反对者所能提出的最强论证。
-
-指出：
-- 我低估了什么代价？
-- 哪些情况下，这个方案会适得其反？
-- 是否存在更简单的替代方案？
-- 双方真正的分歧，是事实、价值排序，还是风险承受能力？
-
-最后给出一个能区分双方判断的验证步骤。
-不要攻击我的人格，也不要假装双方证据同样充分。`,
-  },
-  {
-    id: "premortem",
-    title: "事前验尸",
-    category: "做出决策",
-    question: "假如半年后失败了，今天忽略了什么？",
-    description: "在启动项目、换工作或开始新计划之前，先想一步。",
-    source: mollick,
-    sourceShort: "Mollick · Team Premortem",
-    fields: [
-      ["计划", "我的计划", "描述你准备实施的计划。"],
-      ["可观察的结果", "成功标准", "用可观察、可验证的结果来定义成功。"],
-      ["限制", "截止时间与资源", "什么时候完成？有哪些限制？"],
-    ],
-    text: `我的计划是：[计划]
-成功标准是：[可观察的结果]
-截止时间和资源限制是：[限制]
-
-请带我做一次“事前验尸”，这是情景推演，不是预测。
-
-先让我自己回答：假设到截止日期计划失败了，可能有哪些原因？
-等我回答后，再补充我遗漏的风险，并标明哪些是你的推测。
-
-把风险整理为：
-失败原因｜早期信号｜影响程度｜可控程度｜预防动作。
-
-重点识别：
-- 一个环节出错就会让全局失败的地方；
-- 我明知道有问题，却可能一直拖延处理的地方。
-
-最后选出最该提前处理的3项，以及需要调整或停止计划的条件。
-每次只问一个问题，等我回答后再继续。`,
-  },
-  {
-    id: "reframe",
-    title: "重写问题",
-    category: "看见盲点",
-    question: "我是不是一直在认真解决错误的问题？",
-    description: "反复想同一件事，却迟迟没有新进展的时候。",
-    source: {
-      name: "MIT Sloan · Question Burst Catalyst",
-      url: "https://mitsloan.mit.edu/ideas-made-to-matter/ai-tool-helps-you-ask-better-questions-get-more-authentic-results",
-      credit:
-        "参考 MIT Sloan 对 Hal Gregersen 提问方法的介绍，重新编写；非官方工具原始提示词。",
-    },
-    sourceShort: "参考 MIT Sloan · 中文改写",
-    fields: [
-      ["问题", "一直卡住的问题", "写下那个反复出现在脑海中的问题。"],
-      ["背景", "相关背景", "你尝试过什么？有哪些限制？"],
-    ],
-    text: `我一直卡在这个问题上：[问题]
-背景是：[背景]
-
-先不要给建议。
-
-第一步：用一句中性的话重述我的问题，不预设原因和解决方法，让我确认。
-第二步：请我先写出3个真正困扰我的问题，等我回答。
-第三步：再提出8个新问题，分别挑战我的目标、问题边界、默认约束和利益相关者视角。
-
-问题要具体，不要把建议伪装成问句。
-帮助我选出一个：如果回答清楚，就最可能改变下一步行动的问题。
-
-最后，把它变成一次访谈、一次观察或一个小实验。`,
-  },
-  {
-    id: "understanding",
-    title: "理解检测",
-    category: "学得更深",
-    question: "我真的懂了，还是只是会复述术语？",
-    description: "读完论文、学完概念，或准备向别人讲解的时候。",
-    source: mollick,
-    sourceShort: "Mollick · Teach the AI",
-    fields: [
-      ["概念", "我要讲解的概念", "你想检验自己对什么的理解？"],
-      ["用自己的话写出的解释", "我的解释", "不查资料，先用自己的话讲一遍。"],
-    ],
-    text: `我要向你讲解：[概念]
-我的解释是：[用自己的话写出的解释]
-
-请先扮演一个聪明但没有相关背景的学生。
-每次只问一个问题，针对我解释中的跳跃、模糊词或缺失的因果关系追问。
-
-要求我至少提供：
-- 一个具体例子；
-- 一个看似相似但不适用的反例；
-- 一个改变条件后，结果也会改变的情景。
-
-不要替我完成解释。
-进行5轮后，退出学生角色，指出我已经讲清楚的部分、尚未证明理解的部分，以及最值得补上的知识缺口。`,
-  },
-  {
-    id: "review",
-    title: "复盘去滤镜",
-    category: "复盘成长",
-    question: "结果好，是因为做对了，还是因为运气？",
-    description: "在项目结束、考试之后，或每周复盘时使用。",
-    source: mollick,
-    sourceShort: "Mollick · After Action Review",
-    fields: [
-      ["事件", "这次事情", "选择一个具体事件。"],
-      ["预期", "原本预期", "在开始之前，你期待什么结果？"],
-      ["结果", "实际结果", "实际上发生了什么？"],
-      [
-        "信息与行动",
-        "当时的信息与行动",
-        "只写当时已知的信息，以及当时的选择。",
-      ],
-    ],
-    text: `这次事情是：[事件]
-原本预期：[预期]
-实际结果：[结果]
-我当时掌握的信息和采取的行动：[信息与行动]
-
-请帮助我复盘：
-1. 预期与实际的关键差距是什么？
-2. 哪些解释有证据，哪些只是事后的故事？
-3. 哪些好结果可能有运气成分？哪些坏结果不代表当时决策不合理？
-4. 如果重来一次，但只能使用当时已知的信息，我应该改变什么？
-
-不要把原因归结为“更努力、更自律、更认真”。
-最后只保留：一个继续做的动作、一个停止的动作、一个下次验证的假设。`,
-  },
-  {
-    id: "alignment",
-    title: "行为与目标对照",
-    category: "复盘成长",
-    question: "如果只看我的行动，会认为我在追求什么？",
-    description: "每天都很忙，但重要的事情始终没有推进。",
-    source: {
-      name: "问深一层 · 延伸设计",
-      url: "https://github.com/ivyandbonjuice/thought-prompts",
-      credit:
-        "基于复盘方法延伸设计的原创中文模板，非上述作者原话。由本项目提供，按 CC BY 4.0 授权。",
-    },
-    sourceShort: "本项目 · 延伸设计",
-    fields: [
-      ["目标", "最重要的3个目标", "写出你声称最重要的目标。"],
-      ["具体记录", "过去两周的实际投入", "时间、金钱和注意力都去了哪里？"],
-      ["限制", "无法自由调整的责任", "有哪些责任或限制需要被理解？"],
-    ],
-    text: `我声称最重要的3个目标是：[目标]
-过去两周，我实际投入时间、金钱和注意力的情况是：[具体记录]
-现实中无法自由调整的责任或限制是：[限制]
-
-请对照我的目标与行为：
-1. 哪些投入确实支持这些目标？
-2. 哪些投入与目标不一致？
-3. 这种不一致可能有哪些解释？至少考虑外部约束、短期需要、习惯，以及目标本身不再适合我。
-4. 为每种解释指出支持证据和缺失信息。
-
-不要直接断言我懒惰、恐惧或自欺。
-最后问我一个最有区分力的问题，并设计一个7天内可执行的小调整，检验我是否真的愿意为这个目标付出代价。`,
-  },
-  {
-    id: "audit-ai",
-    title: "反审 AI",
-    category: "学得更深",
-    question: "答案听起来完整，哪里最可能有问题？",
-    description: "追加在任何让你感觉“说得很有道理”的 AI 回答后。",
-    source: coursera,
-    sourceShort: "参考 Coursera · 组合改写",
-    fields: [],
-    text: `请审查你刚才的回答：
-- 哪些是可核验事实，哪些是推断，哪些是价值判断？
-- 哪个关键结论最依赖未经验证的假设？
-- 是否有同样符合现有信息的替代解释？
-- 哪条新信息最可能使你的建议发生改变？
-- 你是否接受了我提问中的错误前提？
-
-不要为了完成审查而编造问题，也不要只是换个措辞重复原答案。
-如果没有外部核验能力，请明确说明。
-最后告诉我：最值得独立核实的3件事是什么，应该如何核实？`,
-  },
-];
-
-const guard =
-  "如果信息不足，先问最关键的问题；请引用我提供的具体内容，不要凭空推断。";
 const $ = (selector) => document.querySelector(selector);
 const dialog = $("#prompt-dialog");
+let language =
+  new URL(location.href).searchParams.get("lang") === "zh" ? "zh" : "en";
+let prompts = promptSets[language];
+let t = ui[language];
 let category = "全部";
 let activePrompt = null;
 let toastTimer;
@@ -299,18 +51,25 @@ async function copyWithFeedback(text, message) {
     await copyText(text);
     announce(message);
   } catch {
-    announce("自动复制未成功，请选中模板文字手动复制。");
+    announce(t.copyError);
   }
 }
 function renderCards() {
   const query = $("#search").value.trim().toLocaleLowerCase();
-  const filtered = prompts.filter(
-    (p) =>
+  const filtered = prompts.filter((p, index) => {
+    const variants = [promptSets.en[index], promptSets.zh[index]];
+    const searchable = variants
+      .map(
+        (item) =>
+          `${item.title} ${item.question} ${item.description} ${item.text} ${item.source.name}`,
+      )
+      .join(" ")
+      .toLocaleLowerCase();
+    return (
       (category === "全部" || p.category === category) &&
-      `${p.title} ${p.question} ${p.description} ${p.text} ${p.source.name}`
-        .toLocaleLowerCase()
-        .includes(query),
-  );
+      searchable.includes(query)
+    );
+  });
   const cards = $("#cards");
   cards.replaceChildren();
   filtered.forEach((p, i) => {
@@ -320,11 +79,11 @@ function renderCards() {
     card.style.setProperty("--i", i);
     const main = element("button", "card-main");
     main.type = "button";
-    main.setAttribute("aria-label", `打开${p.title}：${p.question}`);
+    main.setAttribute("aria-label", `${t.open} ${p.title}: ${p.question}`);
     const top = element("div", "card-top");
     top.append(
       element("span", "card-number", number),
-      element("span", "card-category", p.category),
+      element("span", "card-category", t.categories[p.category]),
     );
     main.append(
       top,
@@ -334,18 +93,18 @@ function renderCards() {
     );
     main.addEventListener("click", () => openPrompt(p.id));
     const bottom = element("div", "card-bottom");
-    const copy = element("button", "copy-card", "复制模板");
-    copy.setAttribute("aria-label", `复制${p.title}原模板`);
+    const copy = element("button", "copy-card", t.copy);
+    copy.setAttribute("aria-label", `${t.copyAria} ${p.title}`);
     copy.append(element("span", "", "⧉"));
     copy.addEventListener("click", () =>
-      copyWithFeedback(p.text, `已复制「${p.title}」`),
+      copyWithFeedback(p.text, `${t.copied} ${p.title}`),
     );
     bottom.append(element("span", "card-source", p.sourceShort), copy);
     card.append(main, bottom);
     cards.append(card);
   });
   $("#result-count").textContent =
-    `${filtered.length} 个提示词${category !== "全部" ? ` · ${category}` : ""}`;
+    `${t.count(filtered.length)}${category !== "全部" ? ` · ${t.categories[category]}` : ""}`;
   $("#empty-state").hidden = filtered.length > 0;
 }
 function filledText() {
@@ -353,9 +112,12 @@ function filledText() {
   const draft = drafts.get(activePrompt.id) || {};
   const text = activePrompt.text.replace(
     /\[([^\]]+)\]/g,
-    (match, key) => draft[key]?.trim() || match,
+    (match, key) =>
+      draft[
+        activePrompt.fields.findIndex((field) => field[0] === key)
+      ]?.trim() || match,
   );
-  return text + ($("#add-guard").checked ? `\n\n${guard}` : "");
+  return text + ($("#add-guard").checked ? `\n\n${guards[language]}` : "");
 }
 function updatePreview() {
   $("#prompt-preview").textContent = filledText();
@@ -366,31 +128,24 @@ function openPrompt(id, updateUrl = true) {
   if (!dialog.open) previousFocus = document.activeElement;
   activePrompt = p;
   $("#dialog-kicker").textContent =
-    `${String(prompts.indexOf(p) + 1).padStart(2, "0")} / ${p.category}`;
+    `${String(prompts.indexOf(p) + 1).padStart(2, "0")} / ${t.categories[p.category]}`;
   $("#dialog-title").textContent = p.title;
   $("#dialog-question").textContent = p.question;
   $("#dialog-use").textContent = p.description;
   const fields = $("#prompt-fields");
   fields.replaceChildren();
   const draft = drafts.get(id) || {};
-  if (!p.fields.length)
-    fields.append(
-      element(
-        "p",
-        "dialog-use",
-        "这是一条追问模板，无需填写。复制后，粘贴到已有 AI 回答的对话中即可。",
-      ),
-    );
+  if (!p.fields.length) fields.append(element("p", "dialog-use", t.noFields));
   p.fields.forEach(([key, label, placeholder], i) => {
     const wrapper = element("label", "field");
     const input = element("textarea");
     input.id = `field-${i}`;
     input.placeholder = placeholder;
-    input.value = draft[key] || "";
+    input.value = draft[i] || "";
     input.rows = 2;
     input.addEventListener("input", () => {
       const values = drafts.get(id) || {};
-      values[key] = input.value;
+      values[i] = input.value;
       drafts.set(id, values);
       updatePreview();
     });
@@ -403,13 +158,13 @@ function openPrompt(id, updateUrl = true) {
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   source.replaceChildren(
-    document.createTextNode("来源 / "),
+    document.createTextNode(t.source),
     link,
     document.createElement("br"),
     document.createTextNode(p.source.credit),
   );
-  if (p.source === mollick || p.id === "alignment") {
-    const license = element("a", "", " 查看 CC BY 4.0 ↗");
+  if (p.source.url === mollick.url || p.id === "alignment") {
+    const license = element("a", "", t.license);
     license.href = "https://creativecommons.org/licenses/by/4.0/";
     license.target = "_blank";
     license.rel = "noopener noreferrer";
@@ -478,40 +233,31 @@ dialog.addEventListener("close", () => {
 });
 $("#add-guard").addEventListener("change", updatePreview);
 $("#copy-original").addEventListener("click", () =>
-  copyWithFeedback(activePrompt.text, "原模板已复制，可粘贴到任意 AI 对话。"),
+  copyWithFeedback(activePrompt.text, t.originalCopied),
 );
 $("#copy-filled").addEventListener("click", () =>
-  copyWithFeedback(filledText(), "提示词已复制，开启一次更好的对话。"),
+  copyWithFeedback(filledText(), t.filledCopied),
 );
 $("#share-prompt").addEventListener("click", () => {
   const url = new URL(location.href);
   url.search = "";
+  url.searchParams.set("lang", language);
   url.hash = `prompt=${activePrompt.id}`;
-  copyWithFeedback(url.href, "分享链接已复制，不包含你填写的内容。");
+  copyWithFeedback(url.href, t.shareCopied);
 });
 $("#download-all").addEventListener("click", () => {
-  const intro =
-    "# 问深一层 · 可复用的思考提示词\n\n中文改写与延伸设计；非来源原文逐字翻译。填写方括号内容后使用。\n\n";
-  const content =
-    intro +
-    prompts
-      .map(
-        (p, i) =>
-          `## ${i + 1}. ${p.title}\n\n${p.question}\n\n适用：${p.description}\n\n\`\`\`text\n${p.text}\n\`\`\`\n\n来源：[${p.source.name}](${p.source.url})\n\n${p.source.credit}\n`,
-      )
-      .join("\n---\n\n") +
-    `\n## 通用附加句\n\n${guard}\n\n许可与完整说明：https://github.com/ivyandbonjuice/thought-prompts#来源与许可\n`;
+  const content = exportMarkdown(language);
   const url = URL.createObjectURL(
     new Blob([content], { type: "text/markdown;charset=utf-8" }),
   );
   const link = element("a");
   link.href = url;
-  link.download = "问深一层-8个思考提示词.md";
+  link.download = t.filename;
   document.body.append(link);
   link.click();
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  announce("已发起下载，包含全部模板与来源说明。");
+  announce(t.downloaded);
 });
 document.addEventListener("keydown", (event) => {
   if (
@@ -527,5 +273,61 @@ document.addEventListener("keydown", (event) => {
   }
 });
 window.addEventListener("hashchange", syncHash);
-renderCards();
+applyLanguage();
 syncHash();
+
+function applyLanguage() {
+  t = ui[language];
+  prompts = promptSets[language];
+  document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+  document.title = t.title;
+  document.querySelector('meta[name="description"]').content = t.description;
+  document.querySelector('meta[property="og:title"]').content = t.title;
+  document.querySelector('meta[property="og:description"]').content =
+    t.description;
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.innerHTML = t[el.dataset.i18n];
+  });
+  $(".brand").setAttribute("aria-label", t.brandHome);
+  $(".brand-mark").firstChild.textContent = language === "zh" ? "问" : "?";
+  $(".site-header nav").setAttribute("aria-label", t.navLabel);
+  $(".filters").setAttribute("aria-label", t.filterLabel);
+  $("#search").placeholder = t.searchPlaceholder;
+  $("#search").setAttribute("aria-label", t.searchLabel);
+  $("#close-dialog").setAttribute("aria-label", t.close);
+  document
+    .querySelector('[data-open="assumptions"]')
+    .setAttribute("aria-label", t.noteAria);
+  document.querySelectorAll(".filter").forEach((button) => {
+    button.textContent = t.categories[button.dataset.filter];
+    if (button.dataset.filter === "全部")
+      button.append(document.createTextNode(" "), element("span", "", "08"));
+  });
+  document
+    .querySelectorAll("[data-lang]")
+    .forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.lang === language),
+      ),
+    );
+  document.querySelectorAll(".brand, .footer-brand").forEach((link) => {
+    link.href = language === "zh" ? "?lang=zh" : "./";
+  });
+  $("#toast").classList.remove("visible");
+  $("#toast").textContent = "";
+  renderCards();
+  if (dialog.open && activePrompt) openPrompt(activePrompt.id, false);
+}
+
+document.querySelectorAll("[data-lang]").forEach((button) =>
+  button.addEventListener("click", () => {
+    if (button.dataset.lang === language) return;
+    language = button.dataset.lang;
+    const url = new URL(location.href);
+    url.searchParams.set("lang", language);
+    history.replaceState(null, "", url);
+    applyLanguage();
+    button.focus({ preventScroll: true });
+  }),
+);
